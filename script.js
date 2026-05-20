@@ -167,7 +167,7 @@ const memberData = {
     ig: "https://www.instagram.com/_m0hamed.z"
   },
   "Abdallah Mohamed": {
-    photos: ["assets/abdallahmohamed1.jpeg", "assets/abdallahmohamed.jpeg"],
+    photos: ["assets/abdallahmohamed1.jpeg", "assets/abdallahmohamed2.jpeg", "assets/abdallahmohamed3.jpeg"],
     ig: "https://www.instagram.com/barelyabdallah"
   },
   "Omar Yasser": {
