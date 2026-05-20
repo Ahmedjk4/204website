@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahmedjk4.github.io/204website/sitemap.xml
+
