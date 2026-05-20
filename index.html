@@ -81,7 +81,7 @@
     <p class="lede">Scroll to introduce the boys and their bios.</p>
     <div class="members">
       <div class="member card fade-in" data-intro="The Godfather" role="region" aria-labelledby="ahmed-name">
-        <img class="photo headshot" src="assets/ahmedelessawy.jpeg" alt="Ahmed Elessawy" style="object-fit:cover;">
+        <img class="photo headshot" src="assets/ahmedelessawypfp.jpeg" alt="Ahmed Elessawy" style="object-fit:cover;">
         <div class="meta">
           <h3 id="ahmed-name">Ahmed Elessawy</h3>
           <p class="desc">Was a nerd, became a loaf.</p>
@@ -89,15 +89,15 @@
       </div>
 
       <div class="member card fade-in" data-intro="Cutiest Boss Fight" role="region" aria-labelledby="mohamed-name">
-        <img class="photo headshot" src="assets/mohamedhossam.jpeg" alt="Mohamed Hossam" style="object-fit:cover;">
+        <img class="photo headshot" src="assets/mohamedhossampfp.jpeg" alt="Mohamed Hossam" style="object-fit:cover;">
         <div class="meta">
           <h3 id="mohamed-name">Mohamed Hossam</h3>
-          <p class="desc">Moving through being a gay to being a femboy to being the destructor.</p>
+          <p class="desc">Tried being a gay then became a femboy ending with being the big destructor.</p>
         </div>
       </div>
 
       <div class="member card fade-in" data-intro="Professor Procrastinate" role="region" aria-labelledby="abdallah-name">
-        <img class="photo headshot" src="assets/abdallahmohamed.jpeg" alt="Abdallah Mohamed" style="object-fit:cover;">
+        <img class="photo headshot" src="assets/abdallahmohamedpfp.jpeg" alt="Abdallah Mohamed" style="object-fit:cover;">
         <div class="meta">
           <h3 id="abdallah-name">Abdallah Mohamed</h3>
           <p class="desc">Mostly sleeping, doesn't do anything in his day, always has a bad temper. (Our lil party spoiler)</p>
@@ -105,7 +105,7 @@
       </div>
 
       <div class="member card fade-in" data-intro="Meme Master" role="region" aria-labelledby="omar-name">
-        <img class="photo headshot" src="assets/omaryasser.jpeg" alt="Omar Yasser" style="object-fit:cover;">
+        <img class="photo headshot" src="assets/omaryasserpfp.jpeg" alt="Omar Yasser" style="object-fit:cover;">
         <div class="meta">
           <h3 id="omar-name">Omar Yasser</h3>
           <p class="desc">The creator of the room, seems to be quiet but he is secretly involved in any problem.</p>
@@ -119,9 +119,7 @@
 
     <div id="photos" class="photos fade-in">
       <h2>Room Photo Wall</h2>
-      <!-- <p class="hint">Drop your photos here � placeholders for now.</p> -->
       <div class="photo-grid" id="photoGrid">
-        <!-- Images will be auto-loaded here by script.js -->
       </div>
     </div>
 
@@ -133,6 +131,36 @@
       </ul>
     </div>
   </section>
+
+  <!-- Member Modal -->
+  <div id="memberModal" class="modal">
+    <div class="modal-overlay" onclick="closeModal('memberModal')"></div>
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('memberModal')">&times;</button>
+      <div class="modal-header">
+        <h3 id="modalMemberName">Name</h3>
+      </div>
+      <div class="carousel-container">
+        <div id="carouselSlides" class="carousel-slides">
+          <!-- Images injected here -->
+        </div>
+        <button id="prevSlide" class="carousel-nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button id="nextSlide" class="carousel-nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+      <div class="modal-footer">
+        <a id="modalIgLink" href="#" target="_blank" class="ig-btn">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="modal">
+    <div class="modal-overlay" onclick="closeModal('lightboxModal')"></div>
+    <div class="lightbox-content">
+      <button class="close-btn lightbox-close" onclick="closeModal('lightboxModal')">&times;</button>
+      <img id="lightboxImg" src="" alt="Enlarged room photo">
+    </div>
+  </div>
 
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

@@ -153,3 +153,118 @@ if(photoGrid) {
     photoGrid.appendChild(slot);
   });
 }
+
+// --- MODALS & CAROUSEL LOGIC ---
+
+// Member Data - add additional photos here for each person
+const memberData = {
+  "Ahmed Elessawy": {
+    photos: ["assets/ahmedelessawy1.jpeg", "assets/ahmedelessawy2.jpeg", "assets/ahmedelessawy3.jpeg"],
+    ig: "https://www.instagram.com/x_ameia_x"
+  },
+  "Mohamed Hossam": {
+    photos: ["assets/mohamedhossam.jpeg", "assets/mohamedhossam.jpeg"],
+    ig: "https://www.instagram.com/_m0hamed.z"
+  },
+  "Abdallah Mohamed": {
+    photos: ["assets/abdallahmohamed1.jpeg", "assets/abdallahmohamed.jpeg"],
+    ig: "https://www.instagram.com/barelyabdallah"
+  },
+  "Omar Yasser": {
+    photos: ["assets/omaryasser.jpeg", "assets/omaryasser.jpeg"],
+    ig: "https://www.instagram.com/omarctic"
+  }
+};
+
+let currentSlide = 0;
+let currentPhotos = [];
+
+function openMemberModal(name) {
+  const modal = document.getElementById('memberModal');
+  const nameEl = document.getElementById('modalMemberName');
+  const slidesEl = document.getElementById('carouselSlides');
+  const igLink = document.getElementById('modalIgLink');
+  
+  const data = memberData[name];
+  if(!data) return;
+
+  nameEl.innerText = name;
+  igLink.href = data.ig;
+  currentPhotos = data.photos;
+  currentSlide = 0;
+  
+  // Build slides
+  slidesEl.innerHTML = '';
+  currentPhotos.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    slidesEl.appendChild(img);
+  });
+  
+  updateCarousel();
+  modal.classList.add('open');
+}
+
+function moveSlide(direction) {
+  currentSlide += direction;
+  if (currentSlide < 0) currentSlide = currentPhotos.length - 1;
+  if (currentSlide >= currentPhotos.length) currentSlide = 0;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const slidesEl = document.getElementById('carouselSlides');
+  slidesEl.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function openLightbox(src) {
+  const modal = document.getElementById('lightboxModal');
+  const imgEl = document.getElementById('lightboxImg');
+  imgEl.src = src;
+  modal.classList.add('open');
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).classList.remove('open');
+}
+
+// Add click listeners to member cards
+document.querySelectorAll('.member.card').forEach(card => {
+  card.addEventListener('click', () => {
+    const name = card.querySelector('h3').innerText;
+    openMemberModal(name);
+  });
+});
+
+if(photoGrid) {
+  // Clearing grid first in case we re-run
+  photoGrid.innerHTML = ''; 
+  const roomImages = [
+    "WhatsApp Image 2026-05-20 at 1.47.34 PM.jpeg",
+    "WhatsApp Image 2026-05-20 at 1.47.34 PM (1).jpeg",
+    "WhatsApp Image 2026-05-20 at 1.47.34 PM (2).jpeg",
+    "WhatsApp Image 2026-05-20 at 1.47.34 PM (3).jpeg"
+  ];
+
+  roomImages.forEach(filename => {
+    const slot = document.createElement('div');
+    slot.className = 'photo-slot';
+    slot.style.overflow = 'hidden';
+    slot.style.border = 'none';
+    
+    const src = `assets/room_images/${filename}`;
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = "Room 204 Photo";
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    img.style.display = 'block';
+
+    // Lightbox listener
+    slot.addEventListener('click', () => openLightbox(src));
+
+    slot.appendChild(img);
+    photoGrid.appendChild(slot);
+  });
+}

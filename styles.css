@@ -80,3 +80,151 @@ body {
   .fade-in, .cta, .linktree a { transition: none !important; animation: none !important; }
 }
 
+
+/* Modal and Overlay Styles */
+.modal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease;
+}
+.modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(23, 22, 21, 0.8);
+  cursor: pointer;
+}
+.modal-content {
+  position: relative;
+  background: var(--bg);
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.lightbox-close {
+  color: var(--bg);
+  right: -40px;
+  top: -40px;
+}
+@media (max-width: 600px) {
+  .lightbox-close {
+    right: 10px;
+    top: -40px;
+  }
+}
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-family: inherit;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.carousel-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--border);
+}
+.carousel-slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+.carousel-slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(244, 241, 234, 0.8);
+  color: var(--text);
+  border: none;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex; justify-content: center; align-items: center;
+  transition: background 0.2s;
+}
+.carousel-nav-btn:hover {
+  background: var(--bg);
+}
+.carousel-nav-btn.prev { left: 10px; }
+.carousel-nav-btn.next { right: 10px; }
+.modal-footer {
+  text-align: center;
+}
+.ig-btn {
+  display: inline-block;
+  background: #E1306C;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.ig-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(225, 48, 108, 0.4);
+}
+.lightbox-content {
+  position: relative;
+  z-index: 1001;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.lightbox-content img {
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.member.card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.member.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.photo-slot {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.photo-slot:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
